@@ -1,33 +1,12 @@
-﻿#include <iostream>
+#include <iostream>
 #include <fstream>
-#include <iomanip>
-#include <thread>
-#include <chrono>
-#include <cmath>
-#include <stdio.h>
-#include <direct.h>
 
 int anycount = 0;
-int max = 1000;//10000000;
+int max = 1000;
 int pluus = 1;
-float progress = 0.0;
-int barWidth = 70;
 int or1or2 = 0;
 
 using namespace std;
-
-const char* getcd()
-{
-	char cCurrentPath[FILENAME_MAX];
-
-	if (!_getcwd(cCurrentPath, sizeof(cCurrentPath)))
-	{
-		return false;
-	}
-
-	cCurrentPath[sizeof(cCurrentPath) - 1] = '\0'; /* not really required */
-	return cCurrentPath;
-}
 
 int main()
 {
@@ -48,9 +27,9 @@ int main()
 		op = max / 100;
 		int oldop = op;
 		cout << "[";
-		while (anycount != max + 1)
+		while (anycount != max + pluus)
 		{
-			if (anycount < max - 1)
+			if (anycount < max)
 			{
 				F << anycount << ", ";
 			}
@@ -69,9 +48,9 @@ int main()
 	}
 	if (or1or2 == 2)
 	{
-		while (anycount != max + 1)
+		while (anycount != max + pluus)
 		{
-			if (anycount < max - 1)
+			if (anycount < max)
 			{
 				F << anycount << ", ";
 				cout << anycount << ", ";
