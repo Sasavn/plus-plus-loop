@@ -228,6 +228,10 @@ ClientBin/
 *.jfm
 *.pfx
 *.publishsettings
+*.VC.db
+*.obj
+*.idb
+*.pdb
 orleans.codegen.cs
 
 # Including strong name files can present a security risk

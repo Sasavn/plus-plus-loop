@@ -5,7 +5,7 @@ int anycount = 0;
 int max = 1000;
 int pluus = 1;
 int or1or2 = 0;
-bool anucount_bigger = false;
+bool anycount_bigger = false;
 
 int main()
 {
@@ -22,21 +22,20 @@ int main()
 	std::cin >> or1or2;
 
 	if (max < anycount)
-		anucount_bigger = true;
-
+		anycount_bigger = true;
 
 	if (or1or2 == 1)
 	{
 		int op = max / 100;
 		int oldop = op;
 		std::cout << "[";
-		while (!anucount_bigger ? anycount < max + pluus : anycount > max - pluus)
+		while (!anycount_bigger ? anycount < max + pluus : anycount > max - pluus)
 		{
-			if (!anucount_bigger ? anycount < max : anycount > max)
+			if (!anycount_bigger ? anycount < max : anycount > max)
 			{
 				F << anycount << ", ";
 			}
-			else if (!anucount_bigger ? anycount >= max : anycount <= max)
+			else if (!anycount_bigger ? anycount >= max : anycount <= max)
 			{
 				F << anycount;
 			}
@@ -45,7 +44,7 @@ int main()
 				op = op + oldop;
 				std::cout << "=";
 			}
-			if (!anucount_bigger)
+			if (!anycount_bigger)
 				anycount = anycount + pluus;
 			else
 				anycount = anycount - pluus;
@@ -54,19 +53,19 @@ int main()
 	}
 	else 
 	{
-		while (!anucount_bigger ? anycount < max + pluus : anycount > max - pluus)
+		while (!anycount_bigger ? anycount < max + pluus : anycount > max - pluus)
 		{
-			if (!anucount_bigger ? anycount < max : anycount > max)
+			if (!anycount_bigger ? anycount < max : anycount > max)
 			{
 				F << anycount << ", ";
 				std::cout << anycount << ", ";
 			}
-			else if (!anucount_bigger ? anycount >= max : anycount <= max)
+			else if (!anycount_bigger ? anycount >= max : anycount <= max)
 			{
 				F << anycount;
 				std::cout << anycount;
 			}
-			if (!anucount_bigger)
+			if (!anycount_bigger)
 				anycount = anycount + pluus;
 			else
 				anycount = anycount - pluus;
