@@ -23,8 +23,7 @@ int main()
 	cin >> or1or2;
 	if (or1or2 == 1)
 	{
-		int op;
-		op = max / 100;
+		int op = max / 100;
 		int oldop = op;
 		cout << "[";
 		while (anycount != max + pluus)
@@ -43,10 +42,10 @@ int main()
 				cout << "=";
 			}
 			anycount = anycount + pluus;
-
 		}
+		cout << "]";
 	}
-	if (or1or2 == 2)
+	else 
 	{
 		while (anycount != max + pluus)
 		{
@@ -63,10 +62,6 @@ int main()
 
 			anycount = anycount + pluus;
 		}
-	}
-	if (or1or2 == 1)
-	{
-		cout << "]";
 	}
 	F.close();
 	system("count.txt");
