@@ -25,7 +25,7 @@ int main()
 		pluus = 1;
 	if (pluus < 0)
 	{
-		pluus = pluus * -1;
+		pluus = -pluus;
 		int temp = max;
 		max = anycount;
 		anycount = temp;
@@ -36,7 +36,7 @@ int main()
 
 	if (or1or2 == 1)
 	{
-		int op = max / 100;
+		int op = (max - anycount) / 100;
 		int oldop = op;
 		std::cout << "[";
 		while (!anycount_bigger ? anycount < max + pluus : anycount > max - pluus)
@@ -49,7 +49,7 @@ int main()
 			{
 				F << anycount;
 			}
-			if (op == anycount / 2)
+			if (anycount > 0 ? op == anycount / 2 : op == -anycount / 2)
 			{
 				op = op + oldop;
 				std::cout << "=";
