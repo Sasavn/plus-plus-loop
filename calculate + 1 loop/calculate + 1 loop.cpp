@@ -21,6 +21,16 @@ int main()
 	std::cout << "Select mode: \n 1.Progress Bar \n 2.Live Print \n 1 or 2: ";
 	std::cin >> or1or2;
 
+	if (pluus == 0)
+		pluus = 1;
+	if (pluus < 0)
+	{
+		pluus = pluus * -1;
+		int temp = max;
+		max = anycount;
+		anycount = temp;
+	}
+
 	if (max < anycount)
 		anycount_bigger = true;
 
