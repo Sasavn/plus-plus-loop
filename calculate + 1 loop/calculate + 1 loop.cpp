@@ -5,66 +5,75 @@ int anycount = 0;
 int max = 1000;
 int pluus = 1;
 int or1or2 = 0;
-
-using namespace std;
+bool anucount_bigger = false;
 
 int main()
 {
-	ofstream F;
-	F.open("count.txt", ios::out);
+	std::ofstream F;
+	F.open("count.txt", std::ios::out);
 	system("title BEST SASAVN PROJECT!");
-	cout << "Start number (default 0): ";
-	cin >> anycount;
-	cout << "Add number (default 1): ";
-	cin >> pluus;
-	cout << "End number (default 1000): ";
-	cin >> max;
-	cout << "Select mode: \n 1.Progress Bar \n 2.Live Print \n 1 or 2: ";
-	cin >> or1or2;
+	std::cout << "Start number (default 0): ";
+	std::cin >> anycount;
+	std::cout << "Add number (default 1): ";
+	std::cin >> pluus;
+	std::cout << "End number (default 1000): ";
+	std::cin >> max;
+	std::cout << "Select mode: \n 1.Progress Bar \n 2.Live Print \n 1 or 2: ";
+	std::cin >> or1or2;
+
+	if (max < anycount)
+		anucount_bigger = true;
+
+
 	if (or1or2 == 1)
 	{
 		int op = max / 100;
 		int oldop = op;
-		cout << "[";
-		while (anycount != max + pluus)
+		std::cout << "[";
+		while (!anucount_bigger ? anycount < max + pluus : anycount > max - pluus)
 		{
-			if (anycount < max)
+			if (!anucount_bigger ? anycount < max : anycount > max)
 			{
 				F << anycount << ", ";
 			}
-			if (anycount == max)
+			else if (!anucount_bigger ? anycount >= max : anycount <= max)
 			{
 				F << anycount;
 			}
 			if (op == anycount / 2)
 			{
 				op = op + oldop;
-				cout << "=";
+				std::cout << "=";
 			}
-			anycount = anycount + pluus;
+			if (!anucount_bigger)
+				anycount = anycount + pluus;
+			else
+				anycount = anycount - pluus;
 		}
-		cout << "]";
+		std::cout << "]";
 	}
 	else 
 	{
-		while (anycount != max + pluus)
+		while (!anucount_bigger ? anycount < max + pluus : anycount > max - pluus)
 		{
-			if (anycount < max)
+			if (!anucount_bigger ? anycount < max : anycount > max)
 			{
 				F << anycount << ", ";
-				cout << anycount << ", ";
+				std::cout << anycount << ", ";
 			}
-			if (anycount == max)
+			else if (!anucount_bigger ? anycount >= max : anycount <= max)
 			{
 				F << anycount;
-				cout << anycount;
+				std::cout << anycount;
 			}
-
-			anycount = anycount + pluus;
+			if (!anucount_bigger)
+				anycount = anycount + pluus;
+			else
+				anycount = anycount - pluus;
 		}
 	}
 	F.close();
 	system("count.txt");
-	cout << "\n";
+	std::cout << std::endl;
 	system("pause");
 }
